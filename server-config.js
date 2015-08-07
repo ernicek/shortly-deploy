@@ -1,3 +1,6 @@
+var mongoose    = require('mongoose');
+mongoose.connect('mongodb://localhost/shortly2');
+
 var express = require('express');
 var partials = require('express-partials');
 var util = require('./lib/utility');
