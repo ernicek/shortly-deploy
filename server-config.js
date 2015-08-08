@@ -1,5 +1,13 @@
 var mongoose    = require('mongoose');
-mongoose.connect('mongodb://localhost/shortly2');
+
+var prodVersion = false;
+if (process.env.NODE_ENV === 'production') {
+  prodVersion = true;
+  console.log('Using production settings!');
+  mongoose.connect('mongodb://MongoLab-c:Psr6cAsLDibDhzSM66S.5Lt7twoSi0dkl7ZN_JGttIo-@ds056727.mongolab.com:56727/MongoLab-c');
+} else {
+  mongoose.connect('mongodb://localhost/shortly2');
+}
 
 var express = require('express');
 var partials = require('express-partials');
